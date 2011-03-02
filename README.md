@@ -6,16 +6,26 @@ Simple JSON server in Haskell using Snap web server and Aeson JSON library. Whip
 
 On Ubuntu:
 
-sudo apt-get install haskell-platform cabal-install
+    sudo apt-get install haskell-platform cabal-install
 
 # Building
 
 Use the makefile for single-command build. Makefile will use cabal (must be in path) to install necessary haskell libraries.
 
-  make
+    make
 
 Or, if you want to run the application manually:
 
-  cabal configure
-  cabal build
+    cabal configure
+    cabal build
+    dist/algo/algo --listen=8888
 
+# Testing
+
+Push simple JSON document to server using
+
+    ./test.sh
+
+This causes the server to process the request and return non-sense response.
+
+Have fun!
