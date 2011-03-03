@@ -9,24 +9,29 @@ import           Data.Maybe
 import qualified Data.Text.Encoding as T
 import           Snap.Types
 
-import           Data.Aeson
+import           Text.JSON
+import           Text.JSON.Generic
+
+import           Data.ByteString.Char8
 
 import           Application
 import           Knapsack
 
-process :: a -> [Int]
+decodeData body = decodeJSON body :: KnapsackProblem
+
+process :: KnapsackProblem -> [Int]
 process d = [1,3]
 
-index :: Application ()
-index = ifTop $ do
+solver :: Application ()
+solver = ifTop $ do
         body <- getRequestBody
         modifyResponse $ setResponseStatus 200 ""
         modifyResponse $ addHeader "Content-Type" "application/json"
-        writeLBS $ handle $ body
+        writeBS $ handle $ body
         r <- getResponse
         finishWith r
     where
-        handle body = encode $ process body
+        handle body = pack $ encodeJSON $ process $ decodeData $ show body
 
 site :: Application ()
-site = route [ ("/", index) ]
+site = route [ ("/", solver) ]
