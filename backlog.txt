@@ -1,4 +1,9 @@
+DONE
+
 - Nimetään datatyypit esimerkkidatan mukaisesti
+
+BACKLOG
+
 - JSON parsinta
 - Helpoin mahdollinen toteutus: TakeUntil Full
 - JSON tuottaminen: list of item IDs
