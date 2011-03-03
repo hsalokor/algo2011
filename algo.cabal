@@ -30,7 +30,7 @@ Executable algo
     time >= 1.1 && < 1.3,
     aeson == 0.2.0.0
 
-  extensions: TypeSynonymInstances MultiParamTypeClasses
+  extensions: TypeSynonymInstances MultiParamTypeClasses DeriveDataTypeable
 
   if flag(development)
     cpp-options: -DDEVELOPMENT
