@@ -1,0 +1,1 @@
+runhaskell -i./src -i./test ./test/Test.hs
