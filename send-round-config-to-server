@@ -1,2 +1,2 @@
 #!/bin/sh
-curl -D - -d @round-config.json http://localhost:8888
+curl -D - -d @examples/round1/single.json http://localhost:8888
