@@ -1,23 +1,19 @@
 module Knapsack
-  ( Item
-  , KnapsackProblem
-  , Dimensions
-  ) where
+    ( Item
+    , KnapsackProblem
+    ) where
 
-data Dimensions = Dimensions Int Int Int
+data Item = Item {
+    id :: Int,
+    value :: Int,
+    weight :: [Int]
+    }
     deriving(Show)
 
 data KnapsackProblem = KnapsackProblem {
     name :: String,
     timeout :: Int,
-    items :: [Item],
-    knapsackDimensions :: Dimensions
-    }
-    deriving(Show)
-
-data Item = Item {
-    id :: Int,
-    value :: Int,
-    itemDimensions :: Dimensions
+    contents :: [Item],
+    capacity :: [Int]
     }
     deriving(Show)
