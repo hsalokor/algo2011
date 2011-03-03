@@ -8,5 +8,13 @@ problem capacity = KnapsackProblem "sample round" 6000 items capacity
 
 noneFit = 
     TestCase (assertEqual "None fit" [] (solve (problem [1, 2, 3])))
+someFit =
+    TestCase (assertEqual "Two first items fit" ["2", "1"] (solve (problem [40, 1000, 1000])))
+allFit =
+    TestCase (assertEqual "Two first items fit" ["3", "2", "1"] (solve (problem [1000, 1000, 1000])))
 
-takeUntilFullTests = [ TestLabel "" noneFit ]
+
+takeUntilFullTests = [ TestLabel "" noneFit
+                     , TestLabel "" someFit
+                     , TestLabel "" allFit
+                     ]
