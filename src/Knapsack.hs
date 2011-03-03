@@ -3,6 +3,7 @@ module Knapsack where
 
 import Data.Typeable
 import Data.Data
+import Data.List
 
 data Item = Item {
     id :: String,
@@ -18,3 +19,5 @@ data KnapsackProblem = KnapsackProblem {
     capacity :: [Int]
     }
     deriving(Eq, Show, Data, Typeable)
+
+totalWeight weights = map sum $ transpose $ weights
