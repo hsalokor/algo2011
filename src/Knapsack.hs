@@ -22,3 +22,4 @@ data KnapsackProblem = KnapsackProblem {
 
 totalWeight weights = map sum $ transpose $ weights
 remainingCapacity capacity weights = map negate (totalWeight ((map negate capacity) : weights))
+fit capacity weights = all (> 0) (remainingCapacity capacity weights)

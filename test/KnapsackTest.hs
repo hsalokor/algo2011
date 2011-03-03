@@ -6,7 +6,13 @@ totalWeightTest =
     TestCase (assertEqual "Total weight" [12, 15, 18] (totalWeight [[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 remainingCapacityTest = 
     TestCase (assertEqual "Remaining capacity" [88, 85, 82] (remainingCapacity [100, 100, 100] [[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+fitTestFits = 
+    TestCase (assertEqual "Fits" True (fit [100, 100, 100] [[1, 2, 3]]))
+fitTestDoesNotFit = 
+    TestCase (assertEqual "Does not fit" False (fit [1, 2, 2] [[1, 2, 3]]))
 
 tests = TestList [ TestLabel "" totalWeightTest
                  , TestLabel "" remainingCapacityTest
+                 , TestLabel "" fitTestFits
+                 , TestLabel "" fitTestDoesNotFit
                  ]
