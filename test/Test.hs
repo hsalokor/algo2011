@@ -11,4 +11,4 @@ main = do runTests
 runTests = do counts <- runTestTT tests 
               when (errors counts > 0 || failures counts > 0) exitFailure
 
-tests = knapsackTests ++ takeUntilFullTests
+tests = TestList (knapsackTests ++ takeUntilFullTests)
