@@ -16,7 +16,7 @@ import           Data.ByteString.Lazy.Char8
 
 import           Application
 import           Knapsack
-import           First
+import           TakeUntilFull
 
 
 solver :: Application ()
