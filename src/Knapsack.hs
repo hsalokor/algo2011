@@ -1,14 +1,15 @@
-module Knapsack
-    ( Item
-    , KnapsackProblem
-    ) where
+{-# LANGUAGE DeriveDataTypeable #-}
+module Knapsack where
+
+import Data.Typeable
+import Data.Data
 
 data Item = Item {
-    id :: String,
+    id :: Int,
     value :: Int,
     weight :: [Int]
     }
-    deriving(Show)
+    deriving(Eq, Show, Data, Typeable)
 
 data KnapsackProblem = KnapsackProblem {
     name :: String,
@@ -16,4 +17,4 @@ data KnapsackProblem = KnapsackProblem {
     contents :: [Item],
     capacity :: [Int]
     }
-    deriving(Show)
+    deriving(Eq, Show, Data, Typeable)
