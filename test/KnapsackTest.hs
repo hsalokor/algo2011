@@ -11,8 +11,8 @@ fitTestFits =
 fitTestDoesNotFit = 
     TestCase (assertEqual "Does not fit" False (fit [1, 2, 2] [[1, 2, 3]]))
 
-tests = TestList [ TestLabel "" totalWeightTest
-                 , TestLabel "" remainingCapacityTest
-                 , TestLabel "" fitTestFits
-                 , TestLabel "" fitTestDoesNotFit
-                 ]
+knapsackTests = TestList [ TestLabel "" totalWeightTest
+                         , TestLabel "" remainingCapacityTest
+                         , TestLabel "" fitTestFits
+                         , TestLabel "" fitTestDoesNotFit
+                         ]
