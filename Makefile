@@ -23,10 +23,13 @@ print-versions:
 	@echo Aeson version: $(AESON_VERSION)
 	@echo Snap version: $(SNAP_VERSION)
 
-configure: install-deps print-versions
+configure-development: install-deps print-versions
 	$(CABAL) configure
 
-build: configure
+configure-optimized: install-deps print-versions
+	$(CABAL) configure -f "-development"
+
+build:
 	$(CABAL) build
 
 run: build

@@ -1,2 +1,2 @@
 #!/bin/sh
-curl -D - -d @data.json http://localhost:8888
+curl -D - -d @round-config.json http://localhost:8888
