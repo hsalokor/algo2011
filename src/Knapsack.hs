@@ -4,7 +4,7 @@ module Knapsack
     ) where
 
 data Item = Item {
-    id :: Int,
+    id :: String,
     value :: Int,
     weight :: [Int]
     }
