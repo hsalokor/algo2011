@@ -16,6 +16,7 @@ Use the makefile for single-command build. Makefile will use cabal (must be in p
 
 Or, if you want to run the application manually:
 
+    cabal install snap-server aeson
     cabal configure
     cabal build
     dist/algo/algo --listen=8888
