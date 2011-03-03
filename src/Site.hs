@@ -12,6 +12,7 @@ import           Snap.Types
 import           Data.Aeson
 
 import           Application
+import           Knapsack
 
 process :: a -> [Int]
 process d = [1,3]
