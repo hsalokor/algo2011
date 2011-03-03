@@ -1,4 +1,4 @@
-module Test.Knapsack where
+module KnapsackTest where
 import Test.HUnit
 import Knapsack
 
