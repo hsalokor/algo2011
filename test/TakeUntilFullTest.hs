@@ -12,9 +12,11 @@ someFit =
     TestCase (assertEqual "Two first items fit" ["2", "1"] (solve (problem [40, 1000, 1000])))
 allFit =
     TestCase (assertEqual "Two first items fit" ["3", "2", "1"] (solve (problem [1000, 1000, 1000])))
-
+valuePerWeightTest = 
+    TestCase (assertEqual "Value per weight" 0.1 (valuePerWeight 10 [50, 30, 20]))        
 
 takeUntilFullTests = [ TestLabel "" noneFit
                      , TestLabel "" someFit
                      , TestLabel "" allFit
+                     , TestLabel "" valuePerWeightTest
                      ]

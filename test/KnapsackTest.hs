@@ -9,7 +9,7 @@ remainingCapacityTest =
 fitTestFits = 
     TestCase (assertEqual "Fits" True (fit [100, 100, 100] [[1, 2, 3]]))
 fitTestDoesNotFit = 
-    TestCase (assertEqual "Does not fit" False (fit [1, 2, 2] [[1, 2, 3]]))
+    TestCase (assertEqual "Does not fit" False (fit [1, 2, 2] [[1, 2, 3]]))    
 
 knapsackTests = [ TestLabel "" totalWeightTest
                 , TestLabel "" remainingCapacityTest

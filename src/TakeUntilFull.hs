@@ -1,4 +1,4 @@
-module TakeUntilFull ( solve ) where
+module TakeUntilFull where
 import Knapsack
 import Data.List
 
@@ -12,3 +12,5 @@ takeUntilFull solution contents capacity =
     where oneMore = ((head contents) : solution)
     
 ids solution = map Knapsack.id solution
+
+valuePerWeight value weight = value / (sum weight)
