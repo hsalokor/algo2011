@@ -5,7 +5,7 @@ import Data.Typeable
 import Data.Data
 
 data Item = Item {
-    id :: Int,
+    id :: String,
     value :: Int,
     weight :: [Int]
     }

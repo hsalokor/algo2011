@@ -16,11 +16,12 @@ import           Data.ByteString.Char8
 
 import           Application
 import           Knapsack
+import           First
 
 decodeData body = decodeJSON body :: KnapsackProblem
 
-process :: KnapsackProblem -> [Int]
-process d = [1,3]
+process :: KnapsackProblem -> [String]
+process d = solve d
 
 solver :: Application ()
 solver = ifTop $ do
