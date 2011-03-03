@@ -1,0 +1,5 @@
+- Nimetään datatyypit esimerkkidatan mukaisesti
+- JSON parsinta
+- Helpoin mahdollinen toteutus: TakeUntil Full
+- JSON tuottaminen: list of item IDs
+------------------ WORKING PROGRAM -------------------
