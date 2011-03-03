@@ -4,7 +4,7 @@ import System.Exit (exitFailure)
 import Control.Monad (join, when)
 
 import KnapsackTest
-import TakeUntilFullTests
+import TakeUntilFullTest
 
 main = do runTests
 
