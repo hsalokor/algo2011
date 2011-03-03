@@ -5,7 +5,7 @@ GET_VER=cut -d- -f2
 AESON_VERSION = $(shell $(GHC_GET_PKG) aeson | $(GET_VER))
 SNAP_VERSION = $(shell $(GHC_GET_PKG) snap | $(GET_VER))
 
-all: run
+all: production
 
 install-snap:
 ifndef SNAP_VERSION
@@ -32,5 +32,8 @@ configure-optimized: install-deps print-versions
 build:
 	$(CABAL) build
 
-run: build
+production: configure-optimized build
 	dist/build/algo/algo --port=8888
+
+development: configure-development build
+	dist/build/algo/algo --port=8000
