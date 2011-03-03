@@ -21,3 +21,4 @@ data KnapsackProblem = KnapsackProblem {
     deriving(Eq, Show, Data, Typeable)
 
 totalWeight weights = map sum $ transpose $ weights
+remainingCapacity capacity weights = map negate (totalWeight ((map negate capacity) : weights))
