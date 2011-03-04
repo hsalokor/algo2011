@@ -3,7 +3,7 @@ import Knapsack
 import Data.List
 
 solve :: KnapsackProblem -> [String]
-solve problem = takeUntilFull [] (sortBy compareValues (contents problem)) (capacity problem)
+solve problem = takeUntilFull [] (sortBy (compareValues valuePerWeight) (contents problem)) (capacity problem)
 
 takeUntilFull solution [] capacity = ids solution
 takeUntilFull solution contents capacity = 
@@ -13,9 +13,9 @@ takeUntilFull solution contents capacity =
     
 ids solution = map Knapsack.id solution
 
-compareValues a b | (itemValue a > itemValue b) = LT
-                  | otherwise = GT                  
-                  where itemValue item = valuePerWeight (value item) (weight item)
+compareValues valuator a b | (itemValue a > itemValue b) = LT
+                           | otherwise = GT                  
+                           where itemValue item = valuator (value item) (weight item)
 
 valuePerWeight :: Int -> [Int] -> Rational
 valuePerWeight value weight = toRational(value) / toRational(sum weight)
