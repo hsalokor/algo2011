@@ -12,10 +12,10 @@ data Item = Item {
     }
     deriving(Eq, Show, Data, Typeable)
 
-data KnapsackProblem = KnapsackProblem {
-    name :: String,
+data Knapsack = Knapsack {
     timeout :: Int,
-    contents :: [Item],
+    nonSelected :: [Item],
+    selected :: [Item],
     capacity :: [Int]
     }
     deriving(Eq, Show, Data, Typeable)

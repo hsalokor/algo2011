@@ -1,5 +1,5 @@
 module Ids ( solve ) where
 import Knapsack
 
-solve :: KnapsackProblem -> [String]
-solve problem = map Knapsack.id $ contents problem
+solve :: Knapsack -> [String]
+solve problem = map Knapsack.id $ nonSelected problem

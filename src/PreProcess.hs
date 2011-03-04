@@ -2,6 +2,6 @@ module PreProcess where
 
 import Knapsack
 
-preProcess :: KnapsackProblem -> KnapsackProblem
-preProcess problem = KnapsackProblem (name problem) (timeout problem) filteredContents (capacity problem)
-    where filteredContents = dropTooBig (contents problem) (capacity problem)
+preProcess :: Knapsack -> Knapsack
+preProcess problem = Knapsack (timeout problem) filteredContents (selected problem) (capacity problem)
+    where filteredContents = dropTooBig (nonSelected problem) (capacity problem)

@@ -13,7 +13,7 @@ import qualified Data.ByteString.Char8 as B8
 import qualified Data.ByteString.Lazy.Char8 as L8
 
 import           Application
-import           Knapsack
+import           ParsedProblem
 import           PreProcess
 import           TakeUntilFull
 
@@ -32,7 +32,7 @@ solver = ifTop $ do
         r <- getResponse
         finishWith r
     where
-        handle body = formatOutput $ solve $ preProcess $ readInput body
+        handle body = formatOutput $ solve $ preProcess $ toKnapsack $ readInput body
         formatOutput result = L8.pack $ encodeJSON result
         readInput body = decodeJSON input :: KnapsackProblem
                          where input = L8.unpack body

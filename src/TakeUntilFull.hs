@@ -2,8 +2,8 @@ module TakeUntilFull where
 import Knapsack
 import Data.List
 
-solve :: KnapsackProblem -> [String]
-solve problem = takeUntilFull [] (sortBy (compareValues valuePerWeight) (contents problem)) (capacity problem)
+solve :: Knapsack -> [String]
+solve problem = takeUntilFull [] (sortBy (compareValues valuePerWeight) (nonSelected problem)) (capacity problem)
 
 takeUntilFull solution [] capacity = ids solution
 takeUntilFull solution contents capacity = 
