@@ -1,0 +1,1 @@
+find examples/round$1/*.json | xargs -I{} ./send-to-server {}

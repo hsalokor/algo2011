@@ -1,0 +1,3 @@
+#!/bin/sh
+make build
+find examples/round$1/*.json | xargs -I{} time dist/build/test/test $LINE {}
