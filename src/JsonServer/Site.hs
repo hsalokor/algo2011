@@ -27,11 +27,7 @@ solver = ifTop $ do
         body <- getRequestBody
         modifyResponse $ setResponseStatus 200 ""
         modifyResponse $ addHeader "Content-Type" "application/json"
-        logI "Input: " $ body
-        logI "Response: " $ response body
         writeLBS $ response $ body
-        r <- getResponse
-        finishWith r
     where
         handle body = formatOutput $ ids $ solve $ toKnapsack $ parse body
         formatOutput result = L8.pack $ encodeJSON result
