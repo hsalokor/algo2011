@@ -35,7 +35,11 @@ build: clean
 	$(CABAL) build
 
 prod: config-prod build
-	dist/build/algo/algo --port=8888 +RTS -N2
+	dist/build/server/server --port=8888 +RTS -N2
 
 dev: config-dev build
-	dist/build/algo/algo --port=8000 +RTS -N2
+	dist/build/server/server --port=8000 +RTS -N2
+
+test: config-prod build
+	./run-tests
+	dist/build/test/test round-config.json
