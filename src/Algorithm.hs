@@ -6,13 +6,5 @@ import            AddAllFitting
 import            Valuators
 import            PickMostValuable
 
-solve = PickMostValuable.solve $ map solveWith [ valuePerWeight
-                                               , valuePerQuadraticWeight
-                                               , powWeight
-                                               , valuePerVolume
-                                               , minDimension
-                                               , maxDimension
-                                               , averageDimension
-                                               ]
-    where
-        solveWith valuator = AddAllFitting.solve . (ItemSort.solve valuator) . PreProcess.solve
+solve = PickMostValuable.solve $ map solveWith [ valuePerWeight, powWeight]
+    where solveWith valuator = AddAllFitting.solve . (ItemSort.solve valuator) . PreProcess.solve
