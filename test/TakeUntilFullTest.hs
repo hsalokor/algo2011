@@ -17,7 +17,7 @@ someFit =
 allFit =
     TestCase (assertEqual "All fit" [item3, item2, item1] (selected $ solve (problem [1000, 1000, 1000] items)))
 
-takeUntilFullTests = [ TestLabel "" noneFit
-                     , TestLabel "" someFit
-                     , TestLabel "" allFit
+takeUntilFullTests = [ TestLabel "TUF" noneFit
+                     , TestLabel "TUF" someFit
+                     , TestLabel "TUF" allFit
                      ]

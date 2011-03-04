@@ -7,10 +7,11 @@ import KnapsackTest
 import TakeUntilFullTest
 import PreProcessTest
 import DensitySortTest
+import AddAllFittingTest
 
 main = do runTests
 
 runTests = do counts <- runTestTT tests 
               when (errors counts > 0 || failures counts > 0) exitFailure
 
-tests = TestList (knapsackTests ++ takeUntilFullTests ++ preProcessTests ++ densitySortTests)
+tests = TestList (knapsackTests ++ takeUntilFullTests ++ preProcessTests ++ densitySortTests ++ addAllFittingTests)
