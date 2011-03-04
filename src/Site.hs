@@ -17,6 +17,7 @@ import            ParsedProblem
 import            Knapsack
 import            PreProcess
 import            DensitySort
+import            TakeUntilFull
 
 logI title message = logError $ lazyToStrict $ L8.append (L8.pack title) message
     where
@@ -39,7 +40,7 @@ solver = ifTop $ do
                          where input = L8.unpack body
         response body = handle $ body
         ids knapsack = Prelude.map Knapsack.id (selected knapsack)
-        solve = DensitySort.solve . PreProcess.solve
+        solve = TakeUntilFull.solve . DensitySort.solve . PreProcess.solve
 
 site :: Application ()
 site = route [ ("/", solver) ]
