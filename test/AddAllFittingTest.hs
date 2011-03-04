@@ -12,6 +12,8 @@ problem capacity available selected = Knapsack 6000 available selected capacity
 
 oneMoreFit =
     TestCase (assertEqual "One more fits" [item3, item1] (selected $ solve (problem [2, 1000, 1000] [item2, item3] [item1])))
+retainsAvailable =
+    TestCase (assertEqual "Retains available list" [item2] (available $ solve (problem [2, 1000, 1000] [item2, item3] [item1])))
 noneFit = 
     TestCase (assertEqual "None fit" [] (selected $ solve (problem [0, 1000, 1000] items [])))
 someFit =
@@ -24,4 +26,5 @@ addAllFittingTests = [ TestLabel "AAF" noneFit
                      , TestLabel "AAF" someFit
                      , TestLabel "AAF" allFit
                      , TestLabel "AAF" oneMoreFit
+                     , TestLabel "AAF" retainsAvailable
                      ]

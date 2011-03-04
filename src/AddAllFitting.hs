@@ -3,11 +3,12 @@ import Knapsack
 import First
 
 solve :: Knapsack -> Knapsack
-solve problem = addAllFitting problem
+solve problem = addAllFitting (length $ available problem) problem
 
-addAllFitting :: Knapsack -> Knapsack
-addAllFitting problem@(Knapsack _ [] _ _) = problem
-addAllFitting problem | isValid proposed = addAllFitting proposed
-                      | otherwise = addAllFitting $ skipOne problem
+addAllFitting :: Int -> Knapsack -> Knapsack
+addAllFitting left problem@(Knapsack _ [] _ _) = problem
+addAllFitting 0 problem = problem
+addAllFitting left problem | isValid proposed = addAllFitting (left) proposed
+                           | otherwise = addAllFitting (left - 1) (rotate problem)
     where proposed = First.solve problem
-          skipOne knapsack = knapsack { available = tail $ available knapsack }
+          rotate problem = problem { available = (tail $ available problem) ++ [head $ available problem] }
