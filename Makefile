@@ -5,7 +5,7 @@ GET_VER=cut -d- -f2
 AESON_VERSION = $(shell $(GHC_GET_PKG) aeson | $(GET_VER))
 SNAP_VERSION = $(shell $(GHC_GET_PKG) snap | $(GET_VER))
 
-all: production
+all: prod
 
 clean:
 	rm -rf dist/build/
