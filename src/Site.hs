@@ -4,38 +4,39 @@ module Site
   ( site
   ) where
 
-import           Control.Applicative
-import           Data.Maybe
-import qualified Data.Text.Encoding as T
 import           Snap.Types
 
 import           Text.JSON
 import           Text.JSON.Generic
 
-import           Data.ByteString.Lazy.Char8
+import qualified Data.ByteString.Char8 as B8
+import qualified Data.ByteString.Lazy.Char8 as L8
 
 import           Application
 import           Knapsack
 import           PreProcess
 import           TakeUntilFull
 
+logI title message = logError $ lazyToStrict $ L8.append (L8.pack title) message
+    where
+        lazyToStrict str = B8.pack $ L8.unpack str
 
 solver :: Application ()
 solver = ifTop $ do
         body <- getRequestBody
         modifyResponse $ setResponseStatus 200 ""
         modifyResponse $ addHeader "Content-Type" "application/json"
-        writeLBS $ handle $ body
+        logI "Input: " $ body
+        logI "Response: " $ response body
+        writeLBS $ response $ body
         r <- getResponse
         finishWith r
     where
         handle body = formatOutput $ solve $ preProcess $ readInput body
-        formatOutput result = pack $ encodeJSON result
-        process input = case input of 
-                            Ok problem -> solve problem
-                            Error e   -> [e]
+        formatOutput result = L8.pack $ encodeJSON result
         readInput body = decodeJSON input :: KnapsackProblem
-                         where input = unpack body
+                         where input = L8.unpack body
+        response body = handle $ body
 
 site :: Application ()
 site = route [ ("/", solver) ]
