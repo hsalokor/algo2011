@@ -11,7 +11,17 @@ items = [item1, item2, item3]
 problem capacity available selected = Knapsack 6000 available selected capacity
 
 oneMoreFit =
-    TestCase (assertEqual "Two first items fit" [item3, item1] (selected $ solve (problem [2, 1000, 1000] [item2, item3] [item1])))
+    TestCase (assertEqual "One more fits" [item3, item1] (selected $ solve (problem [2, 1000, 1000] [item2, item3] [item1])))
+noneFit = 
+    TestCase (assertEqual "None fit" [] (selected $ solve (problem [0, 1000, 1000] items [])))
+someFit =
+    TestCase (assertEqual "Two items fit" [item3, item1] (selected $ solve (problem [2, 1000, 1000] items [])))
+allFit =
+    TestCase (assertEqual "All fit" [item3, item2, item1] (selected $ solve (problem [1000, 1000, 1000] items [])))
 
-addAllFittingTests = [ TestLabel "AAF" oneMoreFit
+
+addAllFittingTests = [ TestLabel "AAF" noneFit
+                     , TestLabel "AAF" someFit
+                     , TestLabel "AAF" allFit
+                     , TestLabel "AAF" oneMoreFit
                      ]
