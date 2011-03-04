@@ -1,1 +1,1 @@
-runhaskell -i./src -i./test ./test/Test.hs
+make build && runhaskell -i./src -i./test ./test/Test.hs
