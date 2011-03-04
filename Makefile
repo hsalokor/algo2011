@@ -39,3 +39,7 @@ prod: config-prod build
 
 dev: config-dev build
 	dist/build/server/server --port=8000 +RTS -N2
+
+test: config-prod build
+	./run-tests
+
