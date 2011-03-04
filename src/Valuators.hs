@@ -15,3 +15,12 @@ powWeight item = toRational((value item) ^ n) / toRational(sum $ map powN (weigh
 
 valuePerVolume :: Item -> Rational
 valuePerVolume item = toRational(value item) / toRational(product $ weight item )
+
+minDimension :: Item -> Rational
+minDimension item = toRational(value item) / toRational(minimum $ weight item)
+
+maxDimension :: Item -> Rational
+maxDimension item = toRational(value item) / toRational(maximum $ weight item)
+
+averageDimension :: Item -> Rational
+averageDimension item = toRational(value item) / (toRational(sum $ weight item) / toRational(length $ weight item))
