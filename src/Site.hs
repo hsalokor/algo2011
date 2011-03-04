@@ -16,6 +16,7 @@ import           Data.ByteString.Lazy.Char8
 
 import           Application
 import           Knapsack
+import           PreProcess
 import           TakeUntilFull
 
 
@@ -28,7 +29,7 @@ solver = ifTop $ do
         r <- getResponse
         finishWith r
     where
-        handle body = formatOutput $ solve $ readInput body
+        handle body = formatOutput $ solve $ preProcess $ readInput body
         formatOutput result = pack $ encodeJSON result
         process input = case input of 
                             Ok problem -> solve problem
