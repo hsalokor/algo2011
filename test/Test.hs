@@ -6,7 +6,7 @@ import Control.Monad (join, when)
 import KnapsackTest
 import TakeUntilFullTest
 import PreProcessTest
-import DensitySortTest
+import ItemSortTest
 import AddAllFittingTest
 import PickMostValuableTest
 

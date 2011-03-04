@@ -15,10 +15,7 @@ import qualified Data.ByteString.Lazy.Char8 as L8
 import            Application
 import            ParsedProblem
 import            Knapsack
-import            PreProcess
-import            DensitySort
-import            TakeUntilFull
-import            AddAllFitting
+import            Algorithm
 
 logI title message = logError $ lazyToStrict $ L8.append (L8.pack title) message
     where
@@ -40,8 +37,7 @@ solver = ifTop $ do
         readInput body = decodeJSON input :: ParsedProblem
                          where input = L8.unpack body
         response body = handle $ body
-        ids knapsack = Prelude.map Knapsack.id (selected knapsack)
-        solve = AddAllFitting.solve . DensitySort.solve . PreProcess.solve
+        ids knapsack = Prelude.map Knapsack.id (selected knapsack)        
 
 site :: Application ()
 site = route [ ("/", solver) ]

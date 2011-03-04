@@ -1,7 +1,7 @@
-module DensitySortTest where
+module ItemSortTest where
 import Test.HUnit
 import Knapsack
-import DensitySort
+import ItemSort
 
 items = [Item "1" 20 [1, 1, 1], Item "2" 10 [1, 1, 1], Item "3" 30 [1, 1, 1]]
 sortedItems = [Item "3" 30 [1, 1, 1], Item "1" 20 [1, 1, 1], Item "2" 10 [1, 1, 1]]

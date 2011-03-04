@@ -1,4 +1,4 @@
-module DensitySort where
+module ItemSort where
 import Knapsack
 import Data.List
 
