@@ -6,4 +6,4 @@ import            ItemSort
 import            TakeUntilFull
 import            AddAllFitting
 
-solve = AddAllFitting.solve . ItemSort.solve . PreProcess.solve
+solve = AddAllFitting.solve . (ItemSort.solve valuePerWeight) . PreProcess.solve

@@ -1,13 +1,10 @@
 module ItemSort where
 import Knapsack
 import Data.List
+import GHC.Exts
 
-solve :: Knapsack -> Knapsack
-solve problem = problem { available = sortBy (compareValues valuePerWeight) (available problem) }
+solve :: (Item -> Rational) -> Knapsack -> Knapsack
+solve valuator problem = problem { available = sortWith (negate . valuator) (available problem) }
 
-compareValues valuator a b | (itemValue a > itemValue b) = LT
-                           | otherwise = GT                  
-                           where itemValue item = valuator (value item) (weight item)
-
-valuePerWeight :: Int -> [Int] -> Rational
-valuePerWeight value weight = toRational(value) / toRational(sum weight)
+valuePerWeight :: Item -> Rational
+valuePerWeight item = toRational(value item) / toRational(sum $ weight item)
