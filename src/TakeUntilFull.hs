@@ -14,10 +14,8 @@ takeUntilFull solution contents capacity =
 ids solution = map Knapsack.id solution
 
 compareValues a b | (itemValue a > itemValue b) = LT
-                  | otherwise = GT
-                  
-   
-itemValue item = valuePerWeight (value item) (weight item)
+                  | otherwise = GT                  
+                  where itemValue item = valuePerWeight (value item) (weight item)
 
-valuePerWeight :: Int -> [Int] -> Fractional Int
-valuePerWeight value weight = value / (sum weight)
+valuePerWeight :: Int -> [Int] -> Rational
+valuePerWeight value weight = toRational(value) / toRational(sum weight)
