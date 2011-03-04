@@ -1,7 +1,14 @@
 module Annealing where
 
+import      System.Random
 import      Control.Concurrent.Annealer
 import      Knapsack(Knapsack, Item, knapsackValue)
+import      Data.List(sortBy)
+import      Data.Ord(comparing)
+
+unsort :: (RandomGen g) => g -> [x] -> [x]
+unsort g es = map snd . sortBy (comparing fst) $ zip rs es
+  where rs = randoms g :: [Integer]
 
 energy :: Knapsack -> Int
 energy knapsack = knapsackValue knapsack
