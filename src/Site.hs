@@ -36,7 +36,7 @@ solver = ifTop $ do
     where
         handle body = formatOutput $ ids $ solve $ toKnapsack $ readInput body
         formatOutput result = L8.pack $ encodeJSON result
-        readInput body = decodeJSON input :: KnapsackProblem
+        readInput body = decodeJSON input :: ParsedProblem
                          where input = L8.unpack body
         response body = handle $ body
         ids knapsack = Prelude.map Knapsack.id (selected knapsack)
