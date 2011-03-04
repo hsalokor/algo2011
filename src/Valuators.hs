@@ -12,3 +12,6 @@ powWeight :: Item -> Rational
 powWeight item = toRational((value item) ^ n) / toRational(sum $ map powN (weight item))
     where n = length (weight item)
           powN value = value ^ n
+
+valuePerVolume :: Item -> Rational
+valuePerVolume item = toRational(value item) / toRational(product $ weight item )
