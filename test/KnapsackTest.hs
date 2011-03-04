@@ -10,9 +10,14 @@ fitTestFits =
     TestCase (assertEqual "Fits" True (fit [100, 100, 100] [[100, 2, 3]]))
 fitTestDoesNotFit = 
     TestCase (assertEqual "Does not fit" False (fit [1, 2, 2] [[1, 2, 3]]))    
+    
+items = [Item "1" 1 [2], Item "2" 1 [1]]
+dropTooBigTest = 
+    TestCase (assertEqual "Drops too big items" [Item "2" 1 [1]] (dropTooBig items [1]))
 
 knapsackTests = [ TestLabel "" totalWeightTest
                 , TestLabel "" remainingCapacityTest
                 , TestLabel "" fitTestFits
                 , TestLabel "" fitTestDoesNotFit
+                , TestLabel "" dropTooBigTest
                 ]

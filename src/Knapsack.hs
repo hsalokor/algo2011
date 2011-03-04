@@ -23,3 +23,7 @@ data KnapsackProblem = KnapsackProblem {
 totalWeight weights = map sum $ transpose $ weights
 remainingCapacity capacity weights = map negate (totalWeight ((map negate capacity) : weights))
 fit capacity weights = all (>= 0) (remainingCapacity capacity weights)
+
+dropTooBig :: [Item] -> [Int] -> [Item]
+dropTooBig contents capacity = filter ((fitSingle capacity) . weight) contents
+    where fitSingle capacity weight = fit capacity [weight]
