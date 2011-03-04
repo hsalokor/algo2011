@@ -1,0 +1,5 @@
+#!/bin/sh
+make build
+while read LINE; do
+    dist/build/test/test $LINE
+done
