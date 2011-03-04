@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Site
+module JsonServer.Site
   ( site
   ) where
 
@@ -12,10 +12,12 @@ import            Text.JSON.Generic
 import qualified Data.ByteString.Char8 as B8
 import qualified Data.ByteString.Lazy.Char8 as L8
 
-import            Application
+import            JsonServer.Application
 import            ParsedProblem
 import            Knapsack
 import            Algorithm
+
+import            Input.JSON
 
 logI title message = logError $ lazyToStrict $ L8.append (L8.pack title) message
     where
@@ -32,10 +34,8 @@ solver = ifTop $ do
         r <- getResponse
         finishWith r
     where
-        handle body = formatOutput $ ids $ solve $ toKnapsack $ readInput body
+        handle body = formatOutput $ ids $ solve $ toKnapsack $ parse body
         formatOutput result = L8.pack $ encodeJSON result
-        readInput body = decodeJSON input :: ParsedProblem
-                         where input = L8.unpack body
         response body = handle $ body
         ids knapsack = Prelude.map Knapsack.id (selected knapsack)        
 
