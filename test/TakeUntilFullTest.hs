@@ -4,20 +4,16 @@ import Knapsack
 import TakeUntilFull
 
 items = [Item "1" 20 [1, 1, 1], Item "2" 10 [1, 1, 1], Item "3" 30 [1, 1, 1]]
-problem capacity = Knapsack 6000 items [] capacity
+problem capacity items = Knapsack 6000 items [] capacity
 
 noneFit = 
-    TestCase (assertEqual "None fit" [] (solve (problem [0, 1000, 1000])))
+    TestCase (assertEqual "None fit" [] (solve (problem [0, 1000, 1000] items)))
 someFit =
-    TestCase (assertEqual "Two items with best value for weight fit" ["1", "3"] (solve (problem [2, 1000, 1000])))
+    TestCase (assertEqual "Two first items fit" ["2", "1"] (solve (problem [2, 1000, 1000] items)))
 allFit =
-    TestCase (assertEqual "Two first items fit" ["2", "1", "3"] (solve (problem [1000, 1000, 1000])))
-    
-valuePerWeightTest = 
-    TestCase (assertEqual "Value per weight" 0.1 (valuePerWeight 10 [50, 30, 20]))        
+    TestCase (assertEqual "All fit" ["3", "2", "1"] (solve (problem [1000, 1000, 1000] items)))
 
 takeUntilFullTests = [ TestLabel "" noneFit
                      , TestLabel "" someFit
                      , TestLabel "" allFit
-                     , TestLabel "" valuePerWeightTest
                      ]
