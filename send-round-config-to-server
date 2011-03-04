@@ -1,2 +1,0 @@
-#!/bin/sh
-curl -D - -d @examples/round1/single.json http://localhost:8888
