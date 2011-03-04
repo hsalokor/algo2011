@@ -10,8 +10,8 @@ import           Snap.Http.Server (quickHttpServe)
 import           Snap.Extension.Server
 #endif
 
-import           Application
-import           Site
+import           JsonServer.Site
+import           JsonServer.Application
 
 main :: IO ()
 #ifdef DEVELOPMENT

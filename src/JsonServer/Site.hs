@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Site
+module JsonServer.Site
   ( site
   ) where
 
@@ -12,7 +12,7 @@ import            Text.JSON.Generic
 import qualified Data.ByteString.Char8 as B8
 import qualified Data.ByteString.Lazy.Char8 as L8
 
-import            Application
+import            JsonServer.Application
 import            ParsedProblem
 import            Knapsack
 import            Algorithm
