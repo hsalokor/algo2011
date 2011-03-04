@@ -7,9 +7,9 @@ totalWeightTest =
 remainingCapacityTest = 
     TestCase (assertEqual "Remaining capacity" [88, 85, 82] (remainingCapacity [100, 100, 100] [[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 fitTestFits = 
-    TestCase (assertEqual "Fits" True (fit [100, 100, 100] [[100, 2, 3]]))
+    TestCase (assertEqual "Fits" True ([[100, 2, 3]] `fits` [100, 100, 100]))
 fitTestDoesNotFit = 
-    TestCase (assertEqual "Does not fit" False (fit [1, 2, 2] [[1, 2, 3]]))    
+    TestCase (assertEqual "Does not fit" False ([[1, 2, 3]] `fits` [1, 2, 2]))    
     
 items = [Item "1" 1 [2], Item "2" 1 [1]]
 dropTooBigTest = 
