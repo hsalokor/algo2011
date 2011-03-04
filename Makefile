@@ -33,7 +33,7 @@ build:
 	$(CABAL) build
 
 production: configure-optimized build
-	dist/build/algo/algo --port=8888
+	dist/build/algo/algo --port=8888 +RTS -N2
 
 development: configure-development build
-	dist/build/algo/algo --port=8000
+	dist/build/algo/algo --port=8000 +RTS -N2
