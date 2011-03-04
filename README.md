@@ -25,7 +25,7 @@ Or, if you want to run the application manually:
 
 Push simple JSON document to server using
 
-    ./test.sh
+    ./send-round-config-to-server
 
 This causes the server to process the request and return non-sense response.
 
