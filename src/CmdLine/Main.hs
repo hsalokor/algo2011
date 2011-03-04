@@ -8,9 +8,7 @@ import            Text.JSON
 import            Text.JSON.Generic
 
 import            Knapsack
-import            PreProcess
-import            TakeUntilFull
-import            AddAllFitting
+import            Algorithm
 
 readFirstFile args = L8.readFile $ Prelude.head args
 
@@ -30,4 +28,4 @@ main = do
        where
            response body = handle $ body
            handle body = formatOutput $ solve $ toKnapsack $ parse body
-           solve = AddAllFitting.solve . PreProcess.solve
+
