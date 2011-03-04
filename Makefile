@@ -42,4 +42,4 @@ dev: config-dev build
 
 test: config-prod build
 	./run-tests
-
+	dist/build/test/test round-config.json
