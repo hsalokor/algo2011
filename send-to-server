@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -D - -d @$1 http://localhost:8888

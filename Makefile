@@ -42,4 +42,8 @@ dev: config-dev build
 
 test: config-prod build
 	./run-tests
-	dist/build/test/test examples/round1/single.json
+
+.PHONY: solve
+
+solve: .PHONY
+	./solve-all-rounds | sort

@@ -60,7 +60,7 @@ Executable server
   else
     if impl(ghc >= 6.12.0)
       ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
-                   -fno-warn-orphans -fno-warn-unused-do-bind
+                   -fno-warn-orphans -fno-warn-unused-do-bind -fno-warn-missing-signatures -fno-warn-name-shadowing
     else
       ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
                    -fno-warn-orphans
