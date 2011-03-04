@@ -14,7 +14,7 @@ Flag development
   Description: Whether to build the server in development (interpreted) mode
   Default: True
 
-Executable algo
+Executable server
   hs-source-dirs: src
   main-is: JsonServer/Main.hs
 
