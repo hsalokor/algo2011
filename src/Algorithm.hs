@@ -6,5 +6,8 @@ import            ItemSort
 import            TakeUntilFull
 import            AddAllFitting
 import            Valuators
+import            PickMostValuable
 
-solve = AddAllFitting.solve . (ItemSort.solve valuePerWeight) . PreProcess.solve
+solve = PickMostValuable.solve [(solveWith valuePerWeight), (solveWith valuePerQuadraticWeight)]
+    where
+        solveWith valuator = AddAllFitting.solve . (ItemSort.solve valuator) . PreProcess.solve
