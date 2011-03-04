@@ -1,9 +1,7 @@
 module Algorithm where
 
-import            Knapsack
 import            PreProcess
 import            ItemSort
-import            TakeUntilFull
 import            AddAllFitting
 import            Valuators
 import            PickMostValuable

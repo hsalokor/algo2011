@@ -6,7 +6,6 @@ module JsonServer.Site
 
 import            Snap.Types
 
-import            Text.JSON
 import            Text.JSON.Generic
 
 import qualified Data.ByteString.Char8 as B8

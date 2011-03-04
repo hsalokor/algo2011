@@ -1,7 +1,6 @@
 module PickMostValuable where
 
 import Knapsack
-import Data.List
 import GHC.Exts
 import Control.Parallel (par)
 

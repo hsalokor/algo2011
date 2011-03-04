@@ -1,6 +1,5 @@
 module TakeUntilFull where
 import Knapsack
-import Data.List
 import First
 
 solve :: Knapsack -> Knapsack
