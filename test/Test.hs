@@ -9,10 +9,11 @@ import PreProcessTest
 import ItemSortTest
 import AddAllFittingTest
 import PickMostValuableTest
+import ValuatorsTest
 
 main = do runTests
 
 runTests = do counts <- runTestTT tests 
               when (errors counts > 0 || failures counts > 0) exitFailure
 
-tests = TestList (knapsackTests ++ takeUntilFullTests ++ preProcessTests ++ densitySortTests ++ addAllFittingTests ++ pickMostValuableTests)
+tests = TestList (knapsackTests ++ takeUntilFullTests ++ preProcessTests ++ densitySortTests ++ addAllFittingTests ++ pickMostValuableTests ++ valuatorTests)
