@@ -3,7 +3,7 @@ import Knapsack
 import Data.List
 
 solve :: Knapsack -> [String]
-solve problem = takeUntilFull [] (sortBy (compareValues valuePerWeight) (nonSelected problem)) (capacity problem)
+solve problem = takeUntilFull [] (sortBy (compareValues valuePerWeight) (available problem)) (capacity problem)
 
 takeUntilFull solution [] capacity = ids solution
 takeUntilFull solution contents capacity = 

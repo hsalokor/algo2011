@@ -14,7 +14,7 @@ data Item = Item {
 
 data Knapsack = Knapsack {
     timeout :: Int,
-    nonSelected :: [Item],
+    available :: [Item],
     selected :: [Item],
     capacity :: [Int]
     }
