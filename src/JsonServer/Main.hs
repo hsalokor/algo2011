@@ -1,7 +1,7 @@
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE TemplateHaskell #-}
 
-module Main where
+module JsonServer.Main where
 
 #ifdef DEVELOPMENT
 import           Snap.Extension.Loader.Devel
@@ -10,8 +10,8 @@ import           Snap.Http.Server (quickHttpServe)
 import           Snap.Extension.Server
 #endif
 
-import           Application
-import           Site
+import           JsonServer.Application
+import           JsonServer.Site
 
 main :: IO ()
 #ifdef DEVELOPMENT

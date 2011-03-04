@@ -16,7 +16,7 @@ Flag development
 
 Executable algo
   hs-source-dirs: src
-  main-is: Main.hs
+  main-is: JsonServer/Main.hs
 
   Build-depends:
     base >= 4 && < 5,
