@@ -1,1 +1,1 @@
-find examples -name "[0-9].json" | solve | sed 's/\[.*//'
+find examples -name "[0-9].json" | ./solve | sed 's/\[.*//'
