@@ -29,6 +29,9 @@ fits weights capacity = all (>= 0) (remainingCapacity capacity weights)
 isValid :: Knapsack -> Bool
 isValid knapsack = selectedWeights `fits` (capacity knapsack)
     where selectedWeights = map weight $ selected knapsack
+    
+knapsackValue :: Knapsack -> Int
+knapsackValue knapsack = sum $ map value $ selected knapsack
 
 dropTooBig :: [Item] -> [Int] -> [Item]
 dropTooBig contents capacity = filter ((fitSingle capacity) . weight) contents
