@@ -1,4 +1,4 @@
-module JsonServer.Application
+module Application
   ( Application
   , applicationInitializer
   ) where

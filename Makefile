@@ -7,6 +7,8 @@ SNAP_VERSION = $(shell $(GHC_GET_PKG) snap | $(GET_VER))
 
 all: production
 
+clean:
+	rm -rf dist/build/
 install-snap:
 ifndef SNAP_VERSION
 	$(CABAL) install snap
@@ -23,17 +25,17 @@ print-versions:
 	@echo Aeson version: $(AESON_VERSION)
 	@echo Snap version: $(SNAP_VERSION)
 
-configure-development: install-deps print-versions
+config-dev: install-deps print-versions
 	$(CABAL) configure
 
-configure-optimized: install-deps print-versions
+config-prod: install-deps print-versions
 	$(CABAL) configure -f "-development"
 
-build:
+build: clean
 	$(CABAL) build
 
-production: configure-optimized build
+prod: config-prod build
 	dist/build/algo/algo --port=8888 +RTS -N2
 
-development: configure-development build
+dev: config-dev build
 	dist/build/algo/algo --port=8000 +RTS -N2
