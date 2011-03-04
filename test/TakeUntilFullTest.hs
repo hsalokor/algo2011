@@ -4,7 +4,7 @@ import Knapsack
 import TakeUntilFull
 
 items = [Item "1" 20 [1, 1, 1], Item "2" 10 [1, 1, 1], Item "3" 30 [1, 1, 1]]
-problem capacity = Knapsack "sample round" 6000 items capacity
+problem capacity = Knapsack 6000 items [] capacity
 
 noneFit = 
     TestCase (assertEqual "None fit" [] (solve (problem [0, 1000, 1000])))
