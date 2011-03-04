@@ -14,7 +14,7 @@ readFirstFile args = L8.readFile $ Prelude.head args
 
 ids knapsack = Prelude.map Knapsack.id (selected knapsack)
 
-formatOutput result = L8.concat [value, pack "\n", response]
+formatOutput filename result = L8.concat [filename, pack ": ", value, pack " ", response, pack "\n"]
     where
         value = L8.pack $ show (knapsackValue result)
         response = L8.pack $ encodeJSON $ ids result
@@ -23,9 +23,11 @@ main :: IO ()
 main = do
            args <- getArgs
            json <- readFirstFile args
-           L8.putStr $ handle json
+           let filename = toFilename args
+           L8.putStr $ handle filename json
            return ()
        where
            response body = handle $ body
-           handle body = formatOutput $ solve $ toKnapsack $ parse body
+           handle file json = formatOutput file $ solve $ toKnapsack $ parse json
+           toFilename args = L8.pack $ Prelude.head args
 
