@@ -14,9 +14,9 @@ energy knapsack = - (knapsackValue knapsack)
 
 perturb knapsack = return (solve $ knapsack { selected = drop 2 (selected knapsack) })
 
-solveWithAnnealing microseconds knapsack = do
+solveWithAnnealing microseconds knapsacks = do
     annealer <- makeAnnealer
     annealForTime 4 microseconds annealer
     getBestState annealer
     where
-        makeAnnealer = initAnnealer [knapsack] energy 50 perturb
+        makeAnnealer = initAnnealer knapsacks energy (length knapsacks) perturb
