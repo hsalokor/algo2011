@@ -16,7 +16,7 @@ unsort g es = map snd . sortBy (comparing fst) $ zip rs es
   where rs = randoms g :: [Integer]
 
 energy :: Knapsack -> Int
-energy knapsack = knapsackValue knapsack
+energy knapsack = - (knapsackValue knapsack)
 
 perturb knapsack = return (solve $ knapsack { selected = drop 2 (selected knapsack) })
 
