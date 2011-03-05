@@ -37,3 +37,7 @@ knapsackValue knapsack = sum $ map value $ selected knapsack
 dropTooBig :: [Item] -> [Int] -> [Item]
 dropTooBig contents capacity = filter ((fitSingle capacity) . weight) contents
     where fitSingle capacity weight = [weight] `fits` capacity
+    
+remainingSpace :: Knapsack -> [Int]
+remainingSpace (Knapsack _ _ [] capacity) = capacity
+remainingSpace k = zipWith (-) (capacity k) (weightSum $ map weight $ selected k)
