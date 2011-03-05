@@ -29,6 +29,9 @@ Executable test
 
   extensions: TypeSynonymInstances MultiParamTypeClasses DeriveDataTypeable
 
+  ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
+               -fno-warn-orphans -fno-warn-unused-do-bind -fno-warn-missing-signatures -fno-warn-name-shadowing
+
 Executable server
   hs-source-dirs: src
   main-is: JsonServer/Main.hs
