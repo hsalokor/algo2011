@@ -5,7 +5,7 @@ import Knapsack
 fitTestFits = 
     TestCase (assertEqual "Fits" True ([[100, 2, 3]] `fits` [100, 100, 100]))
 fitTestDoesNotFit = 
-    TestCase (assertEqual "Does not fit" False ([[1, 2, 3]] `fits` [1, 2, 2]))    
+    TestCase (assertEqual "Does not fit" False ([[103, 105, 107]] `fits` [106, 106, 106]))    
 
 
 item1 = Item "1" 20 [1, 1, 1]

@@ -21,7 +21,9 @@ data Knapsack = Knapsack {
     deriving(Eq, Show, Data, Typeable)
 
 fits :: [[Int]] -> [Int] -> Bool
-fits weights capacity = capacity >= (map sum $ transpose $ weights)
+fits weights capacity = all (>=0) $ zipWith (-) capacity $ weightSum weights 
+
+weightSum weights = (map sum $ transpose $ weights)
 
 isValid :: Knapsack -> Bool
 isValid knapsack = selectedWeights `fits` (capacity knapsack)
