@@ -7,5 +7,9 @@ import            Valuators
 import            PickMostValuable
 import            Annealing
 
-solve = PickMostValuable.solve $ map solveWith [ valuePerWeight, powWeight]
+greedySolve = PickMostValuable.solve $ map solveWith [ valuePerWeight, powWeight]
     where solveWith valuator = AddAllFitting.solve . (ItemSort.solve valuator) . PreProcess.solve
+
+solve problem = solveWithAnnealing 10000 initialPopulation
+    where
+        initialPopulation = greedySolve problem
