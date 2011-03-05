@@ -25,9 +25,12 @@ main = do
            json <- readFirstFile args
            let filename = toFilename args
            L8.putStr $ handle filename json
+           Prelude.putStrLn $ "Weight =" ++ (show $ knapsackWeight $ solution json) ++ " Limit =" ++ (show $ Knapsack.capacity $ problem json)
            return ()
        where
            response body = handle $ body
-           handle file json = formatOutput file $ solve $ toKnapsack $ parse json
+           handle file json = formatOutput file $ solution json
+           solution = solve . problem
+           problem json = toKnapsack $ parse json
            toFilename args = L8.pack $ Prelude.head args
 

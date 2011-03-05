@@ -27,6 +27,8 @@ isValid :: Knapsack -> Bool
 isValid knapsack = selectedWeights `fits` (capacity knapsack)
     where selectedWeights = map weight $ selected knapsack
     
+knapsackWeight knapsack = map sum $ transpose $ map weight $ selected knapsack
+    
 knapsackValue :: Knapsack -> Int
 knapsackValue knapsack = sum $ map value $ selected knapsack
 
