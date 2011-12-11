@@ -19,7 +19,7 @@ Executable test
   main-is: CmdLine/Main.hs
   default-language: Haskell2010
 
-  extensions:
+  default-extensions:
     OverloadedStrings
     DeriveDataTypeable
 
@@ -44,7 +44,7 @@ Executable server
   main-is: JsonServer/Main.hs
   default-language: Haskell2010
 
-  extensions:
+  default-extensions:
     OverloadedStrings
     DeriveDataTypeable
 
