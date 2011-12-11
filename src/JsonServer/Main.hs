@@ -1,27 +1,33 @@
-{-# LANGUAGE CPP #-}
-{-# LANGUAGE TemplateHaskell #-}
-
 module Main where
 
-#ifdef DEVELOPMENT
-import           Snap.Extension.Loader.Devel
-import           Snap.Http.Server (quickHttpServe)
-#else
-import           Snap.Extension.Server
-#endif
+import           Snap.Core
+import           Snap.Http.Server
 
-import           JsonServer.Site
-import           JsonServer.Application
+import           Data.Aeson.Generic
+
+import           Control.Monad(liftM)
+
+import qualified Data.ByteString.Char8 as B8
+import qualified Data.ByteString.Lazy.Char8 as L8
+
+import           ParsedProblem
+import           Knapsack
+import           Algorithm
+import           Input.JSON
+
+lazyToStrict = B8.pack . L8.unpack
+
+ids knapsack = map Knapsack.id (selected knapsack)
+
+solveKnapsack = method POST $ do
+    request <- liftM parse getRequestBody
+    case request of
+        Just problem   -> writeBS $ process problem
+        Nothing        -> writeBS "{ \"error\": \"Invalid request\" }"
+    where
+        process = lazyToStrict . encode . ids . solve . toKnapsack
 
 main :: IO ()
-#ifdef DEVELOPMENT
-main = do
-    -- All source directories will be watched for updates
-    -- automatically.  If any extra directories should be watched for
-    -- updates, include them here.
-    snap <- $(let extraWatchedDirs = []
-              in loadSnapTH 'applicationInitializer 'site extraWatchedDirs)
-    quickHttpServe snap
-#else
-main = quickHttpServe applicationInitializer site
-#endif
+main = httpServe defaultConfig $ route [
+        ("/", solveKnapsack)
+    ]

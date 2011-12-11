@@ -4,8 +4,7 @@ import            System.Environment(getArgs)
 import            Data.ByteString.Lazy.Char8 as L8
 import            Input.JSON
 import            ParsedProblem
-import            Text.JSON
-import            Text.JSON.Generic
+import            Data.Aeson.Generic
 
 import            Knapsack
 import            Algorithm
@@ -17,7 +16,7 @@ ids knapsack = Prelude.map Knapsack.id (selected knapsack)
 formatOutput filename result = L8.concat [filename, pack ": ", value, pack " ", response, pack "\n"]
     where
         value = L8.pack $ show (knapsackValue result)
-        response = L8.pack $ encodeJSON $ ids result
+        response = encode $ ids result
 
 main :: IO ()
 main = do
@@ -28,9 +27,10 @@ main = do
            Prelude.putStrLn $ "Weight =" ++ (show $ knapsackWeight $ solution json) ++ " Limit =" ++ (show $ Knapsack.capacity $ problem json)
            return ()
        where
-           response body = handle $ body
            handle file json = formatOutput file $ solution json
            solution = solve . problem
-           problem json = toKnapsack $ parse json
+           problem json = case parse json of
+                            Just d -> toKnapsack d
+                            _      -> error "foobar"
            toFilename args = L8.pack $ Prelude.head args
 
