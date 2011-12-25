@@ -3,11 +3,11 @@ module Main where
 import            System.Environment(getArgs)
 import            Data.ByteString.Lazy.Char8 as L8
 import            Input.JSON
-import            ParsedProblem
 import            Data.Aeson.Generic
 
-import            Knapsack
-import            Algorithm
+import            Data.Knapsack as Knapsack
+import            Data.ParsedProblem
+import            Algorithm.Solver
 
 readFirstFile args = L8.readFile $ Prelude.head args
 

@@ -1,9 +1,9 @@
-module ParsedProblem where
+module Data.ParsedProblem where
 
 import Data.Typeable
 import Data.Data
 
-import qualified Knapsack as K
+import qualified Data.Knapsack as K
 
 data ParsedProblem = ParsedProblem {
     name :: String,

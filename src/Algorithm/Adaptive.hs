@@ -1,6 +1,6 @@
-module Adaptive where
-import Knapsack
-import First
+module Algorithm.Adaptive where
+import Data.Knapsack
+import Algorithm.First as First
 
 solve :: (Knapsack -> Knapsack) -> Knapsack -> Knapsack
 solve sort problem = adaptive sort 10 problem

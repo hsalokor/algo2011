@@ -1,22 +1,22 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-module Knapsack where
+module Data.Knapsack where
 
 import Data.Typeable
 import Data.Data
 import Data.List
 
 data Item = Item {
-    id :: String,
-    value :: Int,
-    weight :: [Int]
+        id :: String,
+        value :: Int,
+        weight :: [Int]
     }
     deriving(Eq, Show, Data, Typeable)
 
 data Knapsack = Knapsack {
-    timeout :: Int,
-    available :: [Item],
-    selected :: [Item],
-    capacity :: [Int]
+        timeout :: Int,
+        available :: [Item],
+        selected :: [Item],
+        capacity :: [Int]
     }
     deriving(Eq, Show, Data, Typeable)
 

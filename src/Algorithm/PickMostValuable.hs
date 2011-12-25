@@ -1,6 +1,6 @@
-module PickMostValuable where
+module Algorithm.PickMostValuable where
 
-import Knapsack
+import Data.Knapsack
 import GHC.Exts
 import Control.Parallel (par)
 

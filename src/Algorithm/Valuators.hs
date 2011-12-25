@@ -1,5 +1,5 @@
-module Valuators where
-import Knapsack
+module Algorithm.Valuators where
+import Data.Knapsack
 
 valuePerWeight :: [Int] -> Item -> Rational
 valuePerWeight capacity item = toRational(value item) / toRational(sum $ weight item)

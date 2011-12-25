@@ -1,6 +1,6 @@
-module AddAllFitting where
-import Knapsack
-import First
+module Algorithm.AddAllFitting where
+import Data.Knapsack
+import Algorithm.First as First
 
 solve :: Knapsack -> Knapsack
 solve problem = addAllFitting (length $ available problem) problem

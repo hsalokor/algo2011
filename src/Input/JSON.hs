@@ -1,12 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Input.JSON
-  ( parse
-  ) where
+module Input.JSON (parse) where
 
 import            Data.Aeson()
 import            Data.Aeson.Generic
-import            ParsedProblem
+import            Data.ParsedProblem
 
 import            Data.ByteString.Lazy
 

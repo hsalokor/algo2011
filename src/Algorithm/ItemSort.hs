@@ -1,5 +1,5 @@
-module ItemSort where
-import Knapsack
+module Algorithm.ItemSort where
+import Data.Knapsack
 import GHC.Exts
 
 solve :: ([Int] -> Item -> Rational) -> Knapsack -> Knapsack

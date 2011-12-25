@@ -10,9 +10,9 @@ import           Control.Monad(liftM)
 import qualified Data.ByteString.Char8 as B8
 import qualified Data.ByteString.Lazy.Char8 as L8
 
-import           ParsedProblem
-import           Knapsack
-import           Algorithm
+import           Data.ParsedProblem
+import           Data.Knapsack as Knapsack
+import           Algorithm.Solver
 import           Input.JSON
 
 lazyToStrict = B8.pack . L8.unpack

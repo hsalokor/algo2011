@@ -1,9 +1,8 @@
-module TakeUntilFull where
-import Knapsack
-import First
+module Algorithm.TakeUntilFull where
+import Data.Knapsack
+import Algorithm.First
 
 solve :: Knapsack -> Knapsack
-
 solve = takeUntilFull
 
 takeUntilFull :: Knapsack -> Knapsack
